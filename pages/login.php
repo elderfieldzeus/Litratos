@@ -1,18 +1,6 @@
 <?php
 
-  if(isset($_GET['submit'])) {
-    include "../php/connection.php";
-
-    $username = $_GET['username'];
-    $password = $_GET['password'];
-
-    $sql = "SELECT * from `accounts` where `username`=`$username`";
-    $row = mysqli_query($conn, $sqli);
-    
-    if($row && $row['password']) {
-
-    }
-  }
+  include "../php/signin.php";  
 
 ?>
 
@@ -38,13 +26,13 @@
                     <h3 class="login-heading mb-4">Welcome back!</h3>
       
                     <!-- Sign In Form -->
-                    <form method="GET">
+                    <form method="POST">
                       <div class="form-floating mb-3">
-                        <input name="username" type="text" class="form-control" id="floatingInput" placeholder="juandelacruz">
+                        <input name="username" type="text" class="form-control" id="floatingInput" placeholder="juandelacruz" required>
                         <label for="floatingInput">Username</label>
                       </div>
                       <div class="form-floating mb-3">
-                        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
                         <label for="floatingPassword">Password</label>
                       </div>
       

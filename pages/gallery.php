@@ -1,3 +1,23 @@
+<?php
+  include "../php/connection.php";
+  include "../php/signin.php";
+  session_start();
+
+  if(isset($_SESSION['Logged_in']) && $_SESSION['Logged_in'] == true) {
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM `accounts` WHERE `user_id` = '$user_id'";
+    $result = mysqli_query($conn, $sql);
+
+    $account_row = mysqli_fetch_assoc($result);
+
+    $username = $account_row['username'];
+  }
+  else {
+    echo "<script>alert('Please log in.'); window.location.href = './login.php'</script>";
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +29,41 @@
     <link rel="stylesheet" href="../styles/gallery.css">
 </head>
 <body>
+
+<!-- Modal -->
+<dialog class="dialog">
+    <div class="modal-header d-flex justify-content-between mb-3">
+        <h5 class="modal-title" id="exampleModalLabel4">Add a Photo</h5>
+        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn-close" data-mdb-dismiss="modal" onclick="hide()" aria-label="Close"></button>
+    </div>
+
+    <form method="POST" action="../php/upload.php">
+      <div class="form-floating mb-3">
+        <input name="photo_name" type="text" class="form-control" id="floatingInput" placeholder="photoname" required>
+        <label for="floatingInput">Photo Name</label>
+      </div>
+
+      <div class="mb-3">
+        <label for="formFileLg" class="form-label">Select Image to Upload</label>
+        <input name="photo" class="form-control form-control-lg" id="formFileLg" type="file" accept="image/*" required/>
+      </div>
+
+      <div class="d-grid">
+        <button name="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Upload</button>
+      </div>
+    </form>
+</dialog>
+
 <!-- Page Content -->
 <div class="container">
 
   <div class="d-flex justify-content-between align-items-center">
-        <h1 class="fw-light text-center text-lg-start mt-4 mb-0">Your Gallery</h1>
+        <h1 class="fw-light text-center text-lg-start mt-4 mb-0"><?php echo $username . "'s Gallery"; ?></h1>
         <div class="right d-flex align-items-center justify-content-between">
-            <button class="btn-primary text-lg-end d-flex "> Add Image </button>
-            <a class="logout" href="./login.php"></a>
+            <button type="button" class="btn btn-primary" onclick="appear()">
+              Add Photo
+            </button>
+            <a class="logout" href="../php/logout.php"></a>
         </div>
   </div>
 
@@ -26,66 +73,77 @@
 
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aob0ukAYfuI/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EUfxH-pze7s/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg"  alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/M185_qYH8vg/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/sesveuG_rNo/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/AvhMzHwiE_0/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/2gYsZUmockw/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/EMSDtjVHdQ8/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/8mUEy0ABdNE/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/G9Rfc1qccH4/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/aJeH0KcFkuc/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
       </a>
     </div>
     <div class="col-lg-3 col-md-4 col-6">
       <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="https://source.unsplash.com/p2TQ-3Bh3Oo/400x300" alt="">
+        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg"  alt="">
       </a>
     </div>
   </div>
 
 </div>
+<script>
+    const dialog = document.querySelector("dialog");
+
+    function appear() {
+        dialog.show();
+    }
+
+    function hide() {
+        dialog.close()
+    }
+</script>
 </body>
 </html>
