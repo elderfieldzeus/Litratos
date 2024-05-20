@@ -14,4 +14,4 @@ a PHP side project styled with Bootstrap.
 # Self notes
 
 - Must use ` for variables in DB, and ' for variables in code.
-- Cannot use $_SESSION['blabla'] directly in sql queries.
+- Cannot use ```$_SESSION['blabla']``` directly in sql queries.
