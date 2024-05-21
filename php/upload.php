@@ -18,6 +18,8 @@
             $tmp_name = $_FILES["image"]["tmp_name"];
             $photo_size = $_FILES['image']['size'];
 
+            $max_size = 2 * 1024 * 1024;
+
             $valid_format = ['jpg', 'jpeg', 'png'];
             $image_extension = explode('.', $photo);
             $image_extension = strtolower(end($image_extension));
@@ -29,7 +31,7 @@
                     window.location.href = '../pages/gallery.php';
                 </script>";
             }
-            else if($photo_size > 1000000) {
+            else if($photo_size > $max_size) {
                 echo 
                 "<script>
                     alert('Image size too Large');
