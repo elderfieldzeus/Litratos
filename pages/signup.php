@@ -18,7 +18,18 @@
         $sql = "INSERT INTO `accounts`(`username`, `password`, `email`) VALUES ('$username','$hash_password','$email')";
 
         if(mysqli_query($conn, $sql)) {
-          echo "<script> alert('Registration Successful.');window.location.href='./login.php';</script>";
+          session_start();
+
+          $sql = "SELECT * FROM `accounts` WHERE `username` = '$username'";
+          $result = mysqli_query($conn, $sql);
+
+          $row = mysqli_fetch_assoc($result);
+
+
+          $_SESSION['Logged_in'] = true;
+          $_SESSION['user_id'] = $row['user_id'];
+          
+          echo "<script> alert('Registration Successful.');window.location.href='./gallery.php';</script>";
         }
         else {
           echo "Error" . mysqli_error($conn);

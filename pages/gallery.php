@@ -38,7 +38,7 @@
         <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn-close" data-mdb-dismiss="modal" onclick="hide()" aria-label="Close"></button>
     </div>
 
-    <form method="POST" action="../php/upload.php">
+    <form method="POST" action="../php/upload.php" enctype="multipart/form-data">
       <div class="form-floating mb-3">
         <input name="photo_name" type="text" class="form-control" id="floatingInput" placeholder="photoname" required>
         <label for="floatingInput">Photo Name</label>
@@ -46,7 +46,7 @@
 
       <div class="mb-3">
         <label for="formFileLg" class="form-label">Select Image to Upload</label>
-        <input name="photo" class="form-control form-control-lg" id="formFileLg" type="file" accept="image/*" required/>
+        <input name="image" class="form-control form-control-lg" id="image" type="file" accept=".jpg, .jpeg, .png" value="" required/>
       </div>
 
       <div class="d-grid">
@@ -71,67 +71,9 @@
   <hr class="mt-2 mb-5">
 
   <div class="row text-center text-lg-start">
-
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg"  alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg" alt="">
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img class="img-fluid img-thumbnail" src="../assets/images/litratos.jpg"  alt="">
-      </a>
-    </div>
+    <?php
+      include "../php/display.php";
+    ?>
   </div>
 
 </div>

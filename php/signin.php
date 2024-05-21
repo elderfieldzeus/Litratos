@@ -14,7 +14,7 @@
           session_start();
           $_SESSION['Logged_in'] = true;
           $_SESSION['user_id'] = $row['user_id'];
-          echo "<script>alert('Login Successful'); window.location.href = './gallery.php'</script>";
+          header("Location: ../pages/gallery.php");
         }
         else {
           echo "<script>alert('Invalid Username or Password.'); window.location.href = './login.php'</script>";
