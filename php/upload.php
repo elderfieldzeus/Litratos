@@ -18,7 +18,7 @@
             $tmp_name = $_FILES["image"]["tmp_name"];
             $photo_size = $_FILES['image']['size'];
 
-            $max_size = 2 * 1024 * 1024;
+            $max_size = 5 * 1024 * 1024;
 
             $valid_format = ['jpg', 'jpeg', 'png'];
             $image_extension = explode('.', $photo);
