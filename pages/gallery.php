@@ -45,7 +45,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="formFileLg" class="form-label">Select Image to Upload</label>
+        <label for="image" class="form-label">Select Image to Upload</label>
         <input name="image" class="form-control form-control-lg" id="image" type="file" accept=".jpg, .jpeg, .png" value="" required/>
       </div>
 
@@ -77,16 +77,6 @@
   </div>
 
 </div>
-<script>
-    const dialog = document.querySelector("dialog");
-
-    function appear() {
-        dialog.show();
-    }
-
-    function hide() {
-        dialog.close()
-    }
-</script>
+<script src="../script/gallery.js"></script>
 </body>
 </html>

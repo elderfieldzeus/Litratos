@@ -13,3 +13,85 @@
     top: 20%;
     width: max(30vw, 45vh) !important;
 }
+
+.images {
+    cursor: pointer;
+}
+
+.pop_up_dialog {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0);
+    
+    outline: none !important;
+    border: none !important;
+    z-index: 1;
+}
+
+.pop_up_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.677);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pop_up_left {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max(40vh, 40vw);
+    height: max(40vh, 40vw);
+    background-color: black;
+    /* padding: 1vw 0 1vw 1vw; */
+}
+
+.pop_up_image {
+    max-width: max(40vh, 40vw);
+    max-height: max(40vh, 40vw);
+    z-index: 1;
+}
+
+.pop_up_right {
+    position: relative;
+
+    width: max(40vh, 40vw);
+    height: max(40vh, 40vw);
+    background-color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: max(2vh, 2vw);
+}
+
+.pop_up_exit {
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 0 100px rgb(255, 255, 255);
+}
