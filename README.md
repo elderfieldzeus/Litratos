@@ -17,3 +17,4 @@ a PHP side project styled with Bootstrap.
 - Cannot use ```$_SESSION['blabla']``` directly in sql queries.
 - ```enctype="multipart/form-data"``` in form attribute required for file upload.
 - ```chmod 777 /opt/lampp/htdocs/Litratos/assets/gallery/``` = gives permission for temp to be moved to gallery directory.
+- Might have to add a "gallery" directory under "assets".
