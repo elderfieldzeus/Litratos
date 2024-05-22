@@ -18,10 +18,23 @@ function imagePopUp() {
         });
     });
 
-    dialogs.forEach((dialog) => {
+    dialogs.forEach((dialog, index) => {
         //exit
         dialog.children[0].children[1].children[0].addEventListener("click", () => {
             dialog.close();
+        });
+
+        dialog.children[0].children[1].children[1].children[2].children[0].addEventListener("click", (event) => {
+            event.preventDefault();
+
+            const yes = confirm("Delete this image?");
+
+            if (yes) {
+                window.location.href = event.target.href;
+            }
+            else {
+                window.location.href = "../pages/gallery.php";
+            }
         });
 
         responsivePop(dialog.children[0]);

@@ -22,7 +22,7 @@
             echo "File not found.";
         }
 
-        echo '<script>alert("Image successfuly downloaded!"); window.location.href="../pages/gallery.php"</script>.';
+        echo '<script>alert("Image successfully downloaded!"); window.location.href="../pages/gallery.php"</script>.';
     }
     else {
         echo '<script>alert("Download Failed!"); window.location.href="../pages/gallery.php"</script>.';

@@ -24,6 +24,7 @@
                     <div class="pop_up_left">
                         <img class="pop_up_image" src="../assets/gallery/' . $row['photo'] . '" alt="' . $row['photo_name'] . '">
                     </div>
+
                     <div class="pop_up_right">
                         <span class="pop_up_exit"></span>
 
@@ -32,7 +33,7 @@
                             <p> Uploaded on: ' . $row['date_created'] . '</p>
 
                             <div class="buttons">
-                                <a class="pop_up_delete" href="../php/delete.php?id=' . $row['photo_id'] .'"></a>
+                                <a class="pop_up_delete" href="../php/delete.php?id=' . $row['photo_id'] .'&photo=' . $row['photo'] . '"></a>
 
                                 <a class="pop_up_download" href="../php/download.php?photo=' . $row['photo'] . '"></a>
                             </div>

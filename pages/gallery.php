@@ -70,7 +70,7 @@
 
   <hr class="mt-2 mb-5">
 
-  <div class="row text-center text-lg-start">
+  <div class="cards row text-center text-lg-start">
     <?php
       include "../php/display.php";
     ?>
